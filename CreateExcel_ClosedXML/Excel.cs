@@ -45,7 +45,17 @@ namespace CreateExcel_ClosedXML
             var _empdata = GetEmployeeData();
             using (XLWorkbook wb = new XLWorkbook())
             {
-                wb.AddWorksheet(_empdata, "Employee Records");
+                //wb.AddWorksheet(_empdata, "Employee Records");
+                var sheet1 = wb.AddWorksheet(_empdata, "Employee Records");
+
+                sheet1.Column(1).Style.Font.FontColor = XLColor.Red;
+                sheet1.Columns(2, 4).Style.Font.FontColor = XLColor.Blue;
+
+                sheet1.Row(1).CellsUsed().Style.Fill.BackgroundColor = XLColor.Black;
+                sheet1.Row(1).Style.Font.FontColor = XLColor.White;
+
+                sheet1.Rows(2, 4).Style.Font.FontColor = XLColor.AshGrey;
+
                 using (MemoryStream ms = new MemoryStream())
                 {
                     wb.SaveAs(path);
