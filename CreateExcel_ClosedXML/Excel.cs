@@ -12,7 +12,7 @@ namespace CreateExcel_ClosedXML
         {
             var workbook = new XLWorkbook();
             var worksheet = workbook.Worksheets.Add("Sheet 1");
-            worksheet.Cell(1, 1).Value = "Hello World";
+            worksheet.Cell(1, 1).Value = "Hello World.";
             workbook.SaveAs(path);
         }
 
